@@ -165,6 +165,7 @@ const btnAction = (e) => {
     if (producto.Count === 0) {
       delete cart[e.target.dataset.id];
       countItems.innerHTML = "0";
+      totalCart.innerHTML = "";
       // El operador delete de JavaScript remueve una propiedad de un objeto; si no se mantienen más referencias a la misma propiedad, eventualmente se libera automáticamente.
     }
     printCart();
