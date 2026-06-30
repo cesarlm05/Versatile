@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERSATILE | Servicio Técnico de PCs y Notebooks a Domicilio en CABA</title>
+<meta name="description" content="Técnicos certificados a domicilio en CABA. Formateo, eliminación de virus, recuperación de datos, armado de PCs y más. Diagnóstico sin cargo, garantía por escrito y atención el mismo día.">
+<meta name="keywords" content="servicio tecnico pc, reparacion de computadoras a domicilio, tecnico a domicilio CABA, formateo de pc, recuperacion de datos, armado de pc">
+<link rel="canonical" href="https://versatile.com.ar/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VERSATILE">
+<meta property="og:title" content="VERSATILE | Servicio Técnico de PCs a Domicilio en CABA">
+<meta property="og:description" content="Diagnóstico sin cargo. Vamos a tu casa, arreglamos tu PC o notebook el mismo día. Garantía por escrito en cada trabajo.">
+<meta property="og:url" content="https://versatile.com.ar/">
+<meta property="og:image" content="https://versatile.com.ar/og-image.png">
+<meta property="og:locale" content="es_AR">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VERSATILE | Servicio Técnico de PCs a Domicilio en CABA">
+<meta name="twitter:description" content="Diagnóstico sin cargo. Vamos a tu casa, arreglamos tu PC o notebook el mismo día.">
+<meta name="twitter:image" content="https://versatile.com.ar/og-image.png">
+
+<!-- Favicon (placeholder SVG, reemplazar por archivo propio si se desea) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial, sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+
+<!-- Fuente -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        colors: {
+          brand: {
+            50: '#ecfeff', 100: '#cffafe', 300: '#67e8f9',
+            400: '#22d3ee', 500: '#06b6d4', 600: '#2563eb', 700: '#1d4ed8',
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<!-- Alpine.js -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<!-- Lucide icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  .bg-grid {
+    background-image: radial-gradient(circle, rgba(148,163,184,0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .blob {
+    filter: blur(80px);
+  }
+</style>
+</head>
+<body class="bg-white text-slate-900 antialiased" x-data="{ mobileOpen: false, faqOpen: 0 }">
+
+<!-- ===================== NAV ===================== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-slate-950/80 backdrop-blur border-b border-white/10">
+  <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 font-extrabold text-xl tracking-tight text-white">
+      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-sm">V</span>
+      VERSATILE
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <a href="#servicios" class="hover:text-white transition">Servicios</a>
+      <a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a>
+      <a href="#testimonios" class="hover:text-white transition">Opiniones</a>
+      <a href="#faq" class="hover:text-white transition">Preguntas</a>
+    </div>
+    <a href="https://wa.me/5491122524460?text=Hola%2C%20quiero%20pedir%20un%20diagn%C3%B3stico%20gratis%20para%20mi%20PC%2Fnotebook"
+       target="_blank" rel="noopener"
+       class="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-cyan-400 to-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-lg shadow-cyan-500/20 hover:-translate-y-0.5 transition">
+      Pedir presupuesto
+    </a>
+    <button class="md:hidden text-white" @click="mobileOpen = !mobileOpen">
+      <i data-lucide="menu" x-show="!mobileOpen"></i>
+      <i data-lucide="x" x-show="mobileOpen" x-cloak></i>
+    </button>
+  </nav>
+  <div x-show="mobileOpen" x-cloak x-transition class="md:hidden bg-slate-950 border-t border-white/10 px-6 py-4 flex flex-col gap-4 text-slate-300 text-sm font-medium">
+    <a href="#servicios" @click="mobileOpen=false" class="hover:text-white">Servicios</a>
+    <a href="#como-funciona" @click="mobileOpen=false" class="hover:text-white">Cómo funciona</a>
+    <a href="#testimonios" @click="mobileOpen=false" class="hover:text-white">Opiniones</a>
+    <a href="#faq" @click="mobileOpen=false" class="hover:text-white">Preguntas</a>
+    <a href="https://wa.me/5491122524460?text=Hola%2C%20quiero%20pedir%20un%20diagn%C3%B3stico%20gratis%20para%20mi%20PC%2Fnotebook" target="_blank" rel="noopener"
+       class="inline-flex justify-center items-center gap-2 bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-semibold px-5 py-3 rounded-lg">
+      Pedir presupuesto
+    </a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="top" class="relative bg-slate-950 text-white overflow-hidden pt-16">
+  <div class="absolute inset-0 bg-grid opacity-40"></div>
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/30 rounded-full blob"></div>
+  <div class="absolute top-40 -right-24 w-96 h-96 bg-blue-600/30 rounded-full blob"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-cyan-300 px-4 py-1.5 rounded-full text-sm mb-6">
+        <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+        Técnicos a domicilio en CABA · Hoy mismo
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] mb-6">
+        ¿Tu PC no anda? <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">La arreglamos en tu casa</span>, hoy.
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-300 mb-8 max-w-xl">
+        Virus, lentitud, pantalla azul, ruidos raros o un disco que no prende. Vamos hasta tu casa u oficina en CABA, diagnosticamos sin cargo y te decimos el precio antes de tocar nada.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="https://wa.me/5491122524460?text=Hola%2C%20quiero%20pedir%20un%20diagn%C3%B3stico%20gratis%20para%20mi%20PC%2Fnotebook"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.3 4.92L2 22l5.31-1.39a9.86 9.86 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.06h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.3c0-4.53 3.69-8.22 8.24-8.22 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.81c0 4.54-3.69 8.14-8.24 8.14zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+          Pedir diagnóstico gratis
+        </a>
+        <a href="#servicios"
+           class="inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/5 transition">
+          Ver servicios
+        </a>
+      </div>
+      <p class="text-sm text-slate-400 mt-4 flex items-center gap-2">
+        <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i>
+        Sin cargo por el diagnóstico · Respondemos por WhatsApp en minutos
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="w-3 h-3 rounded-full bg-red-400"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+          <span class="w-3 h-3 rounded-full bg-green-400"></span>
+          <span class="ml-3 text-xs text-slate-400">diagnostico_versatile.log</span>
+        </div>
+        <div class="space-y-3 text-sm font-mono">
+          <p class="text-cyan-300">&gt; Analizando equipo del cliente...</p>
+          <p class="text-slate-300">✔ Disco: <span class="text-green-400">OK</span> — sin errores SMART</p>
+          <p class="text-slate-300">✔ Virus detectados: <span class="text-red-400">3</span> — en limpieza</p>
+          <p class="text-slate-300">✔ RAM: 8GB / recomendado upgrade a 16GB</p>
+          <p class="text-slate-300">✔ Backup de archivos: <span class="text-green-400">completado</span></p>
+          <p class="text-cyan-300">&gt; Presupuesto enviado por WhatsApp ✅</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-4 mt-6">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-2xl font-extrabold text-cyan-300">+500</p>
+          <p class="text-xs text-slate-400 mt-1">equipos reparados</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-2xl font-extrabold text-cyan-300">6 meses</p>
+          <p class="text-xs text-slate-400 mt-1">de garantía</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-2xl font-extrabold text-cyan-300">100%</p>
+          <p class="text-xs text-slate-400 mt-1">a domicilio en CABA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOLOR ===================== -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">¿Te suena alguna de estas?</h2>
+      <p class="text-slate-600 text-lg">Son los motivos más comunes por los que nos llaman cada semana.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8">
+        <i data-lucide="timer" class="w-9 h-9 text-blue-600 mb-4"></i>
+        <h3 class="font-bold text-lg mb-2">Tu PC tarda una eternidad en prender</h3>
+        <p class="text-slate-600">Y ya no sabés si es un virus, falta de mantenimiento o que directamente "se está muriendo".</p>
+      </div>
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8">
+        <i data-lucide="file-warning" class="w-9 h-9 text-blue-600 mb-4"></i>
+        <h3 class="font-bold text-lg mb-2">Te da miedo perder tus archivos</h3>
+        <p class="text-slate-600">Fotos, trabajos, la facturación del negocio o la tesis: un virus o un disco que falla puede llevárselo todo.</p>
+      </div>
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8">
+        <i data-lucide="frown" class="w-9 h-9 text-blue-600 mb-4"></i>
+        <h3 class="font-bold text-lg mb-2">Ya te cobraron de más y no arreglaron nada</h3>
+        <p class="text-slate-600">Le pagaste a un "técnico" sin presupuesto previo y volviste a tener el mismo problema a los días.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROPUESTA DE VALOR ===================== -->
+<section class="py-20 bg-slate-950 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Por qué elegir VERSATILE</h2>
+      <p class="text-slate-300 text-lg">No vendemos repuestos de más ni te dejamos esperando. Así trabajamos.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-5">
+          <i data-lucide="home" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="font-bold mb-2">Vamos a tu casa</h3>
+        <p class="text-slate-400 text-sm">No cargás el equipo a ningún lado. Coordinamos un horario y vamos nosotros, el mismo día.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-5">
+          <i data-lucide="receipt" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="font-bold mb-2">Presupuesto sin cargo</h3>
+        <p class="text-slate-400 text-sm">Diagnosticamos primero y te decimos el precio exacto. Vos decidís si avanzamos.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-5">
+          <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="font-bold mb-2">Garantía por escrito</h3>
+        <p class="text-slate-400 text-sm">Cada trabajo y repuesto tiene garantía. Si algo falla, volvemos sin costo.</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-5">
+          <i data-lucide="badge-check" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="font-bold mb-2">Técnicos certificados</h3>
+        <p class="text-slate-400 text-sm">Profesionales con experiencia real en hardware, redes y recuperación de datos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMO FUNCIONA ===================== -->
+<section id="como-funciona" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Cómo funciona</h2>
+      <p class="text-slate-600 text-lg">De WhatsApp a tu PC funcionando, en 3 pasos.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 relative">
+      <div class="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
+      <div class="relative text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white flex items-center justify-center text-2xl font-extrabold mb-5 ring-8 ring-white">1</div>
+        <h3 class="font-bold text-lg mb-2">Escribinos por WhatsApp</h3>
+        <p class="text-slate-600">Contanos qué le pasa a tu equipo y tu dirección en CABA.</p>
+      </div>
+      <div class="relative text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white flex items-center justify-center text-2xl font-extrabold mb-5 ring-8 ring-white">2</div>
+        <h3 class="font-bold text-lg mb-2">Coordinamos la visita</h3>
+        <p class="text-slate-600">Vamos el mismo día u horario a convenir, incluso fines de semana.</p>
+      </div>
+      <div class="relative text-center">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-white flex items-center justify-center text-2xl font-extrabold mb-5 ring-8 ring-white">3</div>
+        <h3 class="font-bold text-lg mb-2">Diagnóstico y arreglo</h3>
+        <p class="text-slate-600">Te pasamos el presupuesto y, si lo aceptás, lo resolvemos en el momento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICIOS ===================== -->
+<section id="servicios" class="py-20 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Nuestros servicios</h2>
+      <p class="text-slate-600 text-lg">Todo lo que tu PC o notebook necesita, en un solo lugar.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="hard-drive-download" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Formateo e instalación de Windows</h3>
+        <p class="text-slate-600 text-sm">Con backup de tus archivos y antivirus configurado de fábrica.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="bug" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Eliminación de virus y malware</h3>
+        <p class="text-slate-600 text-sm">Sacamos virus, adware y carpetas ocultas que ralentizan tu equipo.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="fan" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Limpieza y mantenimiento</h3>
+        <p class="text-slate-600 text-sm">Cambio de pasta térmica, limpieza de coolers y chequeo general.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="cpu" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Actualización de hardware</h3>
+        <p class="text-slate-600 text-sm">Más RAM, discos SSD o placa de video para que tu equipo rinda como nuevo.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="wifi" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Redes y configuración WiFi</h3>
+        <p class="text-slate-600 text-sm">Cableado e instalación de redes para tu casa, oficina o negocio.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="database-backup" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Recuperación de datos</h3>
+        <p class="text-slate-600 text-sm">Evaluamos sin cargo si se pueden recuperar tus archivos de un disco dañado.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="monitor-cog" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Armado de PCs a medida</h3>
+        <p class="text-slate-600 text-sm">PCs gamer, de oficina o diseño, armadas e instaladas en tu casa.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="headset" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Soporte remoto</h3>
+        <p class="text-slate-600 text-sm">Te ayudamos por acceso remoto sin necesidad de visita presencial.</p>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition">
+        <i data-lucide="printer" class="w-8 h-8 text-blue-600 mb-4"></i>
+        <h3 class="font-bold mb-2">Impresoras, mail y periféricos</h3>
+        <p class="text-slate-600 text-sm">Configuración de impresoras, Outlook, correo y dispositivos varios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPARATIVA ===================== -->
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Técnico de siempre vs. VERSATILE</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-slate-200 p-8">
+        <h3 class="font-bold text-slate-500 mb-5">Técnico tradicional</h3>
+        <ul class="space-y-4 text-slate-600">
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>Tenés que llevar el equipo vos</li>
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>Te cobra antes de saber qué tenés</li>
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>Tarda días en darte una respuesta</li>
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>Sin garantía clara del trabajo</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border-2 border-cyan-400 p-8 bg-gradient-to-b from-cyan-50 to-white relative">
+        <span class="absolute -top-3 left-8 bg-gradient-to-r from-cyan-400 to-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">VERSATILE</span>
+        <h3 class="font-bold text-slate-900 mb-5">Con VERSATILE</h3>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-cyan-600 shrink-0 mt-0.5"></i>Vamos nosotros a tu casa</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-cyan-600 shrink-0 mt-0.5"></i>Diagnóstico y presupuesto sin cargo</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-cyan-600 shrink-0 mt-0.5"></i>Respuesta por WhatsApp en minutos</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-cyan-600 shrink-0 mt-0.5"></i>Garantía por escrito en cada trabajo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIOS ===================== -->
+<section id="testimonios" class="py-20 bg-slate-950 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Lo que dicen nuestros clientes</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <div class="flex gap-1 text-yellow-400 mb-4">
+          <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+        </div>
+        <p class="text-slate-300 mb-5">"Pensé que había perdido todas las fotos de mis hijos. Vinieron el mismo día y recuperaron todo el disco. Re agradecida."</p>
+        <p class="font-semibold">Marcela G.</p>
+        <p class="text-sm text-slate-400">Caballito, CABA</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <div class="flex gap-1 text-yellow-400 mb-4">
+          <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+        </div>
+        <p class="text-slate-300 mb-5">"Me armaron una PC para trabajar desde casa, llegaron puntuales y me explicaron todo sin tecnicismos. Recomendados 100%."</p>
+        <p class="font-semibold">Federico R.</p>
+        <p class="text-sm text-slate-400">Palermo, CABA</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <div class="flex gap-1 text-yellow-400 mb-4">
+          <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+        </div>
+        <p class="text-slate-300 mb-5">"Mi notebook tenía un virus que no me dejaba ni abrir el navegador. Lo solucionaron en una visita y me lo dejaron como nuevo."</p>
+        <p class="font-semibold">Lucas P.</p>
+        <p class="text-sm text-slate-400">Belgrano, CABA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Preguntas frecuentes</h2>
+    </div>
+    <div class="space-y-3">
+      <template x-for="(item, i) in [
+        {q:'¿Cuánto cuesta la visita y el diagnóstico?', a:'El diagnóstico a domicilio no tiene cargo. Solo pagás si decidís avanzar con el trabajo, y siempre con el precio acordado antes.'},
+        {q:'¿Trabajan fines de semana o urgencias?', a:'Sí. Coordinamos turnos de lunes a domingo, incluyendo urgencias fuera de horario.'},
+        {q:'¿Qué garantía tiene el trabajo realizado?', a:'Todos nuestros trabajos y repuestos tienen garantía por escrito de 6 meses como mínimo.'},
+        {q:'¿Tengo que llevar mi PC a algún taller?', a:'No. Vamos a tu casa, oficina o negocio en CABA. No necesitás trasladar el equipo.'},
+        {q:'¿Pueden recuperar datos si el disco no prende?', a:'Sí, evaluamos el disco sin cargo y te confirmamos si los datos son recuperables antes de cobrar nada.'},
+        {q:'¿Cómo puedo pagar?', a:'Aceptamos efectivo, transferencia bancaria y tarjeta.'},
+        {q:'¿Cuánto tardan en llegar a mi casa?', a:'En la mayoría de los casos coordinamos la visita para el mismo día.'},
+      ]" :key="i">
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <button @click="faqOpen = faqOpen === i ? null : i" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold">
+            <span x-text="item.q"></span>
+            <i data-lucide="chevron-down" class="w-5 h-5 shrink-0 transition-transform" :class="faqOpen === i ? 'rotate-180' : ''"></i>
+          </button>
+          <div x-show="faqOpen === i" x-collapse x-cloak class="px-6 pb-5 text-slate-600">
+            <span x-text="item.a"></span>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="relative py-24 bg-slate-950 text-white overflow-hidden">
+  <div class="absolute inset-0 bg-grid opacity-30"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/30 rounded-full blob"></div>
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-5">Tu PC no puede esperar</h2>
+    <p class="text-lg text-slate-300 mb-10">Escribinos ahora, contanos qué pasa y coordinamos la visita para hoy mismo. Diagnóstico sin cargo, garantía por escrito.</p>
+    <a href="https://wa.me/5491122524460?text=Hola%2C%20quiero%20pedir%20un%20diagn%C3%B3stico%20gratis%20para%20mi%20PC%2Fnotebook"
+       target="_blank" rel="noopener"
+       class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-semibold px-10 py-5 rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition text-lg">
+      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.3 4.92L2 22l5.31-1.39a9.86 9.86 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.06h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.3c0-4.53 3.69-8.22 8.24-8.22 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.81c0 4.54-3.69 8.14-8.24 8.14zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+      Escribir por WhatsApp ahora
+    </a>
+    <p class="text-sm text-slate-400 mt-4">Sin cargo por el diagnóstico · Respondemos en minutos</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-slate-900 text-slate-400 py-12">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2 font-extrabold text-xl text-white mb-3">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-sm">V</span>
+        VERSATILE
+      </div>
+      <p class="text-sm">Servicio técnico de PCs y notebooks a domicilio en CABA.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold mb-3">Contacto</h4>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> +54 9 11 2252-4460</li>
+        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> CABA, Argentina</li>
+        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> Lun a Dom, turnos a convenir</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold mb-3">Servicios</h4>
+      <ul class="space-y-2 text-sm">
+        <li>Formateo e instalación</li>
+        <li>Eliminación de virus</li>
+        <li>Recuperación de datos</li>
+        <li>Armado de PCs</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold mb-3">Seguinos</h4>
+      <div class="flex gap-3">
+        <a href="https://wa.me/5491122524460" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+        <a href="mailto:contacto@versatile.com.ar" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition"><i data-lucide="mail" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs flex flex-col sm:flex-row justify-between gap-2">
+    <p>&copy; 2026 VERSATILE. Todos los derechos reservados.</p>
+    <p>versatile.com.ar</p>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/5491122524460?text=Hola%2C%20quiero%20pedir%20un%20diagn%C3%B3stico%20gratis%20para%20mi%20PC%2Fnotebook"
+   target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-xl shadow-green-500/30 transition hover:scale-105"
+   aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.3 4.92L2 22l5.31-1.39a9.86 9.86 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.06h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.3c0-4.53 3.69-8.22 8.24-8.22 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.81c0 4.54-3.69 8.14-8.24 8.14zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
+
+<!-- Analytics: descomentar y completar con el ID propio una vez desplegado -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
